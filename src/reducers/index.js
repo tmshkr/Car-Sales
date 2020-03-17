@@ -1,3 +1,5 @@
+import { ADD_ITEM, REMOVE_ITEM } from "../actions/types";
+
 const initialState = {
   additionalPrice: 0,
   car: {
@@ -21,12 +23,12 @@ export const reducer = (state = initialState, action) => {
   newState.updated = Date.now(); // forces components to update when mapped to their props
   let item;
   switch (action.type) {
-    case "ADD_ITEM":
+    case ADD_ITEM:
       item = newState.addOns[action.id];
       item.selected = true;
       newState.addedFeatures[item.id] = item;
       break;
-    case "REMOVE_ITEM":
+    case REMOVE_ITEM:
       item = newState.addOns[action.id];
       item.selected = false;
       delete newState.addedFeatures[item.id];
