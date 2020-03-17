@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import AvailableFeature from "./AvailableFeature";
+import AddOn from "./AddOn";
 
 const AvailableFeatures = props => {
   const { availableFeatures, addItem, removeItem } = props;
-  console.log(props);
 
   return (
     <div className="content">
@@ -12,7 +11,7 @@ const AvailableFeatures = props => {
       {Object.keys(availableFeatures).length ? (
         <ol type="1">
           {Object.values(availableFeatures).map(item => (
-            <AvailableFeature
+            <AddOn
               key={item.id}
               item={item}
               actions={{ addItem, removeItem }}
@@ -27,8 +26,6 @@ const AvailableFeatures = props => {
 };
 
 const mapStateToProps = state => ({
-  car: state.car,
-  additionalPrice: state.additionalPrice,
   availableFeatures: state.availableFeatures,
   updated: state.updated
 });

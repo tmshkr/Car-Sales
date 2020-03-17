@@ -4,8 +4,7 @@ const initialState = {
     price: 26395,
     name: "2019 Ford Mustang",
     image:
-      "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
-    features: {}
+      "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg"
   },
   addedFeatures: {},
   availableFeatures: {
@@ -24,16 +23,20 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ITEM":
       item = newState.availableFeatures[action.id];
+      item.selected = true;
       newState.addedFeatures[item.id] = item;
-      delete newState.availableFeatures[item.id];
       break;
     case "REMOVE_ITEM":
-      item = newState.addedFeatures[action.id];
-      newState.availableFeatures[item.id] = item;
+      item = newState.availableFeatures[action.id];
+      item.selected = false;
       delete newState.addedFeatures[item.id];
       break;
     default:
       break;
   }
+  newState.additionalPrice = Object.values(newState.addedFeatures).reduce(
+    (a, c) => a + c.price,
+    0
+  );
   return newState;
 };
