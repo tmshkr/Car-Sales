@@ -5,10 +5,7 @@ import AddOn from "./AddOn";
 
 const AddOnList = () => {
   const dispatch = useDispatch();
-  const addOns = useSelector(
-    state => state.addOns,
-    () => false // forces re-render
-  );
+  const addOns = useSelector(state => state.addOns);
 
   return (
     <div className="content">

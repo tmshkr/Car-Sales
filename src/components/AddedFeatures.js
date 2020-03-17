@@ -5,10 +5,7 @@ import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
   const dispatch = useDispatch();
-  const addedFeatures = useSelector(
-    state => state.addedFeatures,
-    () => false // forces re-render
-  );
+  const addedFeatures = useSelector(state => state.addedFeatures);
 
   return (
     <div className="content">

@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
@@ -7,7 +7,12 @@ import AddOnList from "./components/AddOnList";
 import Total from "./components/Total";
 
 const App = props => {
-  const { additionalPrice, car } = props;
+  const state = useSelector(state => ({
+    additionalPrice: state.additionalPrice,
+    car: state.car
+  }));
+
+  const { additionalPrice, car } = state;
 
   return (
     <div className="boxes">
@@ -23,9 +28,4 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  car: state.car,
-  additionalPrice: state.additionalPrice
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
