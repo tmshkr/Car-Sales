@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 
 import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
-import AdditionalFeatures from "./components/AdditionalFeatures";
+import AvailableFeatures from "./components/AvailableFeatures";
 import Total from "./components/Total";
 
 const App = props => {
   console.log(props);
-  const { additionalFeatures, additionalPrice, car, dispatch } = props;
+  const { availableFeatures, additionalPrice, car, dispatch } = props;
 
   return (
     <div className="boxes">
@@ -17,7 +17,7 @@ const App = props => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures />
+        <AvailableFeatures />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
@@ -27,7 +27,7 @@ const App = props => {
 const mapStateToProps = state => ({
   car: state.car,
   additionalPrice: state.additionalPrice,
-  additionalFeatures: state.additionalFeatures
+  availableFeatures: state.availableFeatures
 });
 
 export default connect(mapStateToProps)(App);

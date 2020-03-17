@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const AddedFeature = props => {
+  const { item } = props;
+  const { removeItem } = props.actions;
   return (
     <li>
-      {/* Add an onClick to run a function to remove a feature */}
-      <button className="button">X</button>
-      {props.feature.name}
+      <button className="button" onClick={() => removeItem(item.id)}>
+        X
+      </button>
+      {item.name}
     </li>
   );
 };
