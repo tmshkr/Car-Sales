@@ -7,7 +7,7 @@ const initialState = {
       "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg"
   },
   addedFeatures: {},
-  availableFeatures: {
+  addOns: {
     1: { id: 1, name: "V-6 engine", price: 1500 },
     2: { id: 2, name: "Racing detail package", price: 1500 },
     3: { id: 3, name: "Premium sound system", price: 500 },
@@ -22,12 +22,12 @@ export const reducer = (state = initialState, action) => {
   let item;
   switch (action.type) {
     case "ADD_ITEM":
-      item = newState.availableFeatures[action.id];
+      item = newState.addOns[action.id];
       item.selected = true;
       newState.addedFeatures[item.id] = item;
       break;
     case "REMOVE_ITEM":
-      item = newState.availableFeatures[action.id];
+      item = newState.addOns[action.id];
       item.selected = false;
       delete newState.addedFeatures[item.id];
       break;

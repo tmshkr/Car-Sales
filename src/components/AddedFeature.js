@@ -1,11 +1,11 @@
 import React from "react";
+import { removeItem } from "../actions";
 
 const AddedFeature = props => {
-  const { item } = props;
-  const { removeItem } = props.actions;
+  const { dispatch, item } = props;
   return (
     <li>
-      <button className="button" onClick={() => removeItem(item.id)}>
+      <button className="button" onClick={() => dispatch(removeItem(item.id))}>
         X
       </button>
       {item.name}
