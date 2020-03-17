@@ -18,6 +18,12 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
+    case "ADD_ITEM":
+      newState.additionalFeatures[action.index].selected = true;
+      break;
+    case "REMOVE_ITEM":
+      newState.additionalFeatures[action.index].selected = false;
+      break;
     default:
       break;
   }

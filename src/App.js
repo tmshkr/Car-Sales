@@ -8,15 +8,7 @@ import Total from "./components/Total";
 
 const App = props => {
   console.log(props);
-  const { additionalFeatures, additionalPrice, car } = props;
-
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-  };
-
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-  };
+  const { additionalFeatures, additionalPrice, car, dispatch } = props;
 
   return (
     <div className="boxes">
@@ -25,7 +17,7 @@ const App = props => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={additionalFeatures} />
+        <AdditionalFeatures />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
