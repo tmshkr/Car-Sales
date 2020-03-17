@@ -1,12 +1,12 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
 import AddOnList from "./components/AddOnList";
 import Total from "./components/Total";
 
-const App = props => {
+function App() {
   const state = useSelector(state => ({
     additionalPrice: state.additionalPrice,
     car: state.car
@@ -26,6 +26,6 @@ const App = props => {
       </div>
     </div>
   );
-};
+}
 
 export default App;
