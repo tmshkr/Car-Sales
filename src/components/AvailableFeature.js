@@ -1,17 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 const AdditionalFeature = props => {
   console.log(props);
-  // const [selected, setSelected] = useState(false);
   const { actions, item } = props;
-  const { addItem, removeItem } = actions;
-  // const didMount = useRef(false);
-
-  // useEffect(() => {
-  //   if (didMount.current) {
-  //     selected ? addItem(item.id) : removeItem();
-  //   } else didMount.current = true;
-  // }, [selected]);
+  const { addItem } = actions;
 
   return (
     <li>

@@ -1,5 +1,3 @@
-import { combineReducers } from "redux";
-
 const initialState = {
   additionalPrice: 0,
   car: {
@@ -39,5 +37,3 @@ export const reducer = (state = initialState, action) => {
   }
   return newState;
 };
-
-// export const combinedReducers
