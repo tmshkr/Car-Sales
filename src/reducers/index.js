@@ -1,3 +1,5 @@
+import { cloneDeep } from "lodash";
+
 import { ADD_ITEM, REMOVE_ITEM } from "../actions/types";
 
 const initialState = {
@@ -19,17 +21,15 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  const newState = { ...state };
-  newState.updated = Date.now(); // forces components to update when mapped to their props
-  let item;
+  const newState = cloneDeep(state);
+
+  const item = newState.addOns[action.id];
   switch (action.type) {
     case ADD_ITEM:
-      item = newState.addOns[action.id];
       item.selected = true;
       newState.addedFeatures[item.id] = item;
       break;
     case REMOVE_ITEM:
-      item = newState.addOns[action.id];
       item.selected = false;
       delete newState.addedFeatures[item.id];
       break;
@@ -40,5 +40,6 @@ export const reducer = (state = initialState, action) => {
     (a, c) => a + c.price,
     0
   );
+
   return newState;
 };
