@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import AddedFeature from './AddedFeature';
+import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
+  const dispatch = useDispatch();
+  const addedFeatures = useSelector(state => state.addedFeatures);
+
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.car.features.length ? (
+      {Object.keys(addedFeatures).length ? (
         <ol type="1">
-          {props.car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
+          {Object.values(addedFeatures).map(item => (
+            <AddedFeature key={item.id} item={item} dispatch={dispatch} />
           ))}
         </ol>
       ) : (
